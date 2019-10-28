@@ -1,3 +1,54 @@
-<div class="card-form">
-  card-form
+<div class="card-form" role="form" novalidate>
+  <form [formGroup]="cardForm">
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="cardNumber">Card Number</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cardNumber"
+          formControlName="cardNumber"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <div class="form-group col">
+        <label for="cardName">Card Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cardName"
+          formControlName="cardName"
+        />
+      </div>
+    </div>
+    <div class="form-row">
+      <ng-container formGroupName="expirationDate">
+        <div class="form-group col-md-4">
+          <label for="#">Expiration Date</label>
+          <select id="inputState" class="form-control" formControlName="month">
+            <option>Month</option>
+            <option *ngFor="let month of months">{{ month }}</option>
+          </select>
+        </div>
+        <div class="form-group col-md-4">
+          <label for="#">&nbsp;</label>
+          <select id="inputState" class="form-control" formControlName="year">
+            <option>Year</option>
+            <option *ngFor="let year of years">{{ year }}</option>
+          </select>
+        </div>
+      </ng-container>
+      <div class="form-group col-md-4">
+        <label for="cvv">CVV</label>
+        <input
+          type="text"
+          class="form-control"
+          id="cvv"
+          formControlName="cvv"
+        />
+      </div>
+      <button type="button" class="btn btn-primary btn-block">Submit</button>
+    </div>
+  </form>
 </div>
